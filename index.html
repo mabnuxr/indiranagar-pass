@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Indiranagar Pass — A Briefing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0F0F0F;
+    --bg-card: #181818;
+    --bg-card-hover: #1F1F1F;
+    --border: #2A2A2A;
+    --text-primary: #F0EDE6;
+    --text-secondary: #9A9690;
+    --text-muted: #5A5753;
+    --accent: #C8853A;
+    --accent-soft: rgba(200, 133, 58, 0.12);
+    --accent-mid: rgba(200, 133, 58, 0.25);
+    --green: #5A9E6F;
+    --green-soft: rgba(90, 158, 111, 0.15);
+    --red: #C85A5A;
+    --red-soft: rgba(200, 90, 90, 0.15);
+    --yellow: #C8A83A;
+    --yellow-soft: rgba(200, 168, 58, 0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Layout */
+  .layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Sidebar Nav */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 48px 24px 48px 0;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .nav-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+
+  .nav-label:first-of-type { margin-top: 0; }
+
+  .sidebar nav a {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.2s;
+    line-height: 1.4;
+  }
+
+  .sidebar nav a:hover { color: var(--text-primary); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Main content */
+  .main {
+    padding: 48px 0 96px 64px;
+    max-width: 720px;
+  }
+
+  /* Doc header */
+  .doc-header {
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .doc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+
+  .doc-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .doc-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+
+  .doc-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .meta-value {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 72px;
+    scroll-margin-top: 32px;
+  }
+
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    line-height: 1.25;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  p strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 2px solid var(--accent);
+    padding: 20px 24px;
+    margin: 32px 0;
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* Timeline */
+  .timeline {
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    padding-left: 28px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .timeline-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .timeline-content strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Stat cards */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* Challenge cards */
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .challenge-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .challenge-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .challenge-text strong {
+    color: var(--text-primary);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  /* Studio comparison */
+  .studio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 32px 0;
+  }
+
+  .studio-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .studio-card:hover {
+    background: var(--bg-card-hover);
+    border-color: #333;
+  }
+
+  .studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .studio-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .studio-type {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .fit-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .fit-strong { background: var(--green-soft); color: var(--green); border: 1px solid rgba(90,158,111,0.3); }
+  .fit-very-strong { background: var(--accent-soft); color: var(--accent); border: 1px solid rgba(200,133,58,0.3); }
+  .fit-medium { background: var(--yellow-soft); color: var(--yellow); border: 1px solid rgba(200,168,58,0.3); }
+
+  .studio-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .data-point {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .data-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .data-value {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .studio-insight {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    line-height: 1.5;
+  }
+
+  .studio-insight em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  /* Friction bar */
+  .friction-bar {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+  }
+
+  .friction-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .friction-dot.filled { background: var(--red); }
+  .friction-dot.empty { background: var(--border); }
+
+  /* Opportunity block */
+  .opportunity-block {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-mid);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+
+  .opportunity-block .section-eyebrow { margin-bottom: 12px; }
+
+  .opportunity-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .opportunity-block p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .opportunity-block p:last-child { margin-bottom: 0; }
+
+  /* Next steps */
+  .next-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 28px 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+  }
+
+  .step-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .step-content strong {
+    color: var(--text-primary);
+    display: block;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  /* Two col */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .mini-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .mini-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .mini-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mini-card ul li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .mini-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main { padding: 32px 24px 64px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .studio-data { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">Indiranagar Pass<br>Briefing Doc · Jun 2026</div>
+    <nav>
+      <div class="nav-label">Context</div>
+      <a href="#thesis">The Thesis</a>
+      <a href="#classpass">ClassPass Story</a>
+      <a href="#india">India's Failed Attempts</a>
+
+      <div class="nav-label">Why Now</div>
+      <a href="#shift">What's Changed</a>
+      <a href="#market">The Market</a>
+
+      <div class="nav-label">Field Research</div>
+      <a href="#studios">Studios Mapped</a>
+      <a href="#pricing">Pricing Data</a>
+
+      <div class="nav-label">The Build</div>
+      <a href="#challenges">Honest Challenges</a>
+      <a href="#opportunity">The Opportunity</a>
+      <a href="#nextsteps">Next Steps</a>
+    </nav>
+    <div class="sidebar-footer">Prepared by Mihir<br>For Prasanna Akella</div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Header -->
+    <header class="doc-header">
+      <div class="doc-eyebrow">Confidential · Working Document</div>
+      <h1 class="doc-title">The case for building<br><em>Indiranagar's fitness pass</em><br>in 2026.</h1>
+      <p class="doc-subtitle">A research brief exploring whether a ClassPass-style platform can work in Bangalore — starting with Indiranagar — and whether the timing, market, and founding team are finally right.</p>
+      <div class="doc-meta">
+        <div class="meta-item">
+          <span class="meta-label">Prepared</span>
+          <span class="meta-value">June 25, 2026</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-value">Mihir</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">For</span>
+          <span class="meta-value">Prasanna Akella</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Pre-validation · Open discussion</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Thesis -->
+    <section class="section" id="thesis">
+      <div class="section-eyebrow">Starting Point</div>
+      <h2 class="section-title">The <em>obvious</em> idea that no one has done well yet.</h2>
+
+      <p>Over lunch today, a simple question surfaced: why doesn't Indiranagar have what Atlanta and San Francisco have had for a decade? A single pass, one subscription, access to the best boutique fitness experiences in the neighbourhood — yoga, pilates, HIIT, muay thai, strength, movement — without the friction of committing to one studio or paying 8 drop-in fees.</p>
+
+      <p>The idea isn't novel. <strong>ClassPass built a billion-dollar company on it in the US.</strong> What's worth examining is why it hasn't worked in India yet, what's changed, and whether the conditions in Indiranagar in 2026 are meaningfully different from every previous attempt.</p>
+
+      <div class="pull-quote">
+        <p>"The novelty isn't in the idea. The novelty is in the execution, the timing, and whether the right people are building it in the right place at the right moment."</p>
+      </div>
+
+      <p>This document is an attempt to honestly examine all three. It covers the ClassPass story in full, India's failed attempts, what's structurally different now, one afternoon of real supply-side field research, and the genuine challenges that would need to be solved. It ends with a proposal for what a first move looks like.</p>
+    </section>
+
+    <!-- ClassPass Story -->
+    <section class="section" id="classpass">
+      <div class="section-eyebrow">The Reference Model</div>
+      <h2 class="section-title">How ClassPass <em>actually</em> happened.</h2>
+
+      <p>The origin matters because it wasn't a clean story. Payal Kadakia, MIT grad and lifelong dancer, spent 16 months building Classtivity — a gorgeous class discovery platform — that generated 10 bookings a month. Champagne success: press coverage, TechStars, investors, and almost zero traction.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2011–12</div>
+          <div class="timeline-content"><strong>Classtivity launches</strong> as a search engine for fitness classes. Lead-gen model. Studios pay for referrals. 10 bookings/month despite heavy press. Classic false signal of success.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2013</div>
+          <div class="timeline-content"><strong>The Passport experiment</strong> — a $49 trial giving 10 visits across studios. The real insight: users were making fake email accounts to keep using it after the trial. People didn't want to commit to one studio. Variety was the product, not the funnel.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2013–15</div>
+          <div class="timeline-content"><strong>ClassPass launches</strong> with a $99 unlimited subscription. Doubles and triples every 1–2 months. Raises $52M. Expands to 40 cities. But the economics are broken — fixed revenue, variable costs per class attended.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-content"><strong>Near-death.</strong> Raises unlimited price to $190, loses 10% of users overnight. Kills unlimited entirely. Introduces credits model — dynamic pricing by class demand and peak times. Hard pivot that nearly kills them but saves the business.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2017–20</div>
+          <div class="timeline-content"><strong>Credits model stabilises.</strong> Series C at $500M valuation. Expands globally. Adds corporate wellness (B2B) which becomes the real margin engine. Hits $1B unicorn valuation in January 2020.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020–21</div>
+          <div class="timeline-content"><strong>COVID wipes 95% of revenue.</strong> Staff cut by half. Pivots to virtual. Survives. Acquires Fitternity (India's closest equivalent). In October 2021, acquired by Mindbody in an all-stock deal — Mindbody taking 60–70% of the combined entity.</div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">$549M</div>
+          <div class="stat-label">Total venture capital raised across 9 rounds</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100M+</div>
+          <div class="stat-label">Class reservations made on the platform</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">36,000</div>
+          <div class="stat-label">Partner venues globally as of early 2026</div>
+        </div>
+      </div>
+
+      <p>The Mindbody acquisition is instructive. ClassPass was the consumer layer — discovery and booking. Mindbody was the B2B infrastructure — studio management software. They were dependent on each other and slowly becoming competitors. The merger created a unified stack: studio software + consumer marketplace. Worth noting because it tells you where the eventual defensibility lies.</p>
+
+      <p><strong>The core unit economics lesson:</strong> ClassPass's formula was paying studios roughly 50% of their 10-class-pass rate per session. On a $99 unlimited plan with heavy users, the company paid out more than it took in. The credits model fixed this by making high-demand, peak-time classes cost more credits — aligning consumer behaviour with studio economics.</p>
+    </section>
+
+    <!-- India -->
+    <section class="section" id="india">
+      <div class="section-eyebrow">Why It Hasn't Worked Here Yet</div>
+      <h2 class="section-title">India's attempts, and <em>what they got wrong.</em></h2>
+
+      <p>The idea has been tried. Fitternity (Mumbai, 2013), Fitpass (Delhi, 2012), and Cult.fit's aggregator layer all made runs at some version of this. None became ClassPass. Here's why.</p>
+
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <div class="challenge-num">01</div>
+          <div class="challenge-text">
+            <strong>They aggregated the wrong supply.</strong>
+            Fitternity and Fitpass went wide too fast — 12,000+ gyms across 15+ cities. But the supply was inconsistent. A ₹999/month pass across mediocre gyms isn't a premium product, it's a discount card. Quality is the product, not quantity.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">02</div>
+          <div class="challenge-text">
+            <strong>Boutique fitness culture hadn't matured yet.</strong>
+            In 2016, the dense cluster of high-quality boutique studios — pilates, aerial yoga, steel mace flow, functional movement — that exists in Indiranagar today simply didn't exist in the same concentration. The supply side wasn't ready.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">03</div>
+          <div class="challenge-text">
+            <strong>Payment infrastructure wasn't there.</strong>
+            Recurring subscriptions via UPI, digital class booking, instant payments to studios — all of this is now table stakes. In 2015–17, it was genuinely difficult. The infrastructure problem ate product time.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">04</div>
+          <div class="challenge-text">
+            <strong>Cult.fit won by going vertical instead.</strong>
+            Rather than aggregating supply it couldn't control, Cult.fit built its own studios, controlled the experience, acquired competitors, and created switching costs through data and community. Now runs 600+ centres. Fitternity was eventually acquired by them — folded into Cult Pass.
+          </div>
+        </div>
+      </div>
+
+      <p>The important nuance: Cult.fit eventually built a horizontal aggregator layer anyway (Cult Pass, via the Fitternity acquisition), but only after establishing vertical credibility first. The sequence was: <strong>own quality → then aggregate.</strong> A pure aggregator starting from scratch in 2016 didn't have the supply quality to survive.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- What's Changed -->
+    <section class="section" id="shift">
+      <div class="section-eyebrow">The Timing Argument</div>
+      <h2 class="section-title">What's <em>genuinely different</em> in 2026.</h2>
+
+      <p>This is the most important section. The question isn't "why didn't this work before." The question is: "what's changed that makes this worth trying now?"</p>
+
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <div class="challenge-num">→</div>
+          <div class="challenge-text">
+            <strong>The boutique supply is finally there.</strong>
+            Indiranagar in 2026 has Belong, Fit District, Studio Oura, AthaYog, The Studio by Copper + Cloves, CrossFit 9one, Namrata Purohit Pilates, Mixed Movement Fitness, and more — all within a 3km radius. Distinct formats, high quality, drop-in ready. This density didn't exist 5 years ago.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">→</div>
+          <div class="challenge-text">
+            <strong>Consumer behaviour has shifted.</strong>
+            The 26–36 year old Bangalore professional increasingly treats fitness as lifestyle, not obligation. Run clubs, gym communities, weekend hikes — the social/experiential angle of fitness has gone mainstream. The ClassPass insight — that variety is the product — is more culturally legible now.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">→</div>
+          <div class="challenge-text">
+            <strong>AI-assisted building changes the cost structure.</strong>
+            A booking platform, credit management system, studio dashboard, and consumer app that would have required a 6-person engineering team in 2018 can now be meaningfully scaffolded by 1–2 people with AI tools. The capital required to reach MVP has dropped significantly.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">→</div>
+          <div class="challenge-text">
+            <strong>UPI + subscription infrastructure is mature.</strong>
+            Razorpay, Cashfree, and others have made recurring billing, instant studio payouts, and in-app credits trivial to implement. The payment stack is solved.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">→</div>
+          <div class="challenge-text">
+            <strong>Bangalore has the right corporate density.</strong>
+            The B2B corporate wellness angle — selling group passes to funded startups and tech companies in and around Indiranagar/Koramangala — is a real revenue unlock that didn't exist at scale before. Companies already spend on employee perks. Fitness passes are an easy sell to HR teams.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market -->
+    <section class="section" id="market">
+      <div class="section-eyebrow">The Market</div>
+      <h2 class="section-title">Who this is actually <em>built for.</em></h2>
+
+      <p>The target customer is not a Belong member. Belong members are paying ₹66,000 for 36 PT sessions (≈₹1,830/session) because they want zero decision fatigue — the trainer thinks for them. That's a different product entirely.</p>
+
+      <p>The target is <strong>one rung below Belong</strong>: the 26–36 year old in Indiranagar or nearby who is fitness-conscious, has ₹3,000–5,000/month to spend, is bored of a single gym membership, can't justify 3 separate memberships, and is exactly the kind of person who would have used ClassPass in Atlanta or San Francisco.</p>
+
+      <p>Think developers, designers, consultants, founders, marketers — the broad cohort of young professionals who live or work in and around Indiranagar, earn well, and treat their health and lifestyle as something worth spending on. They already spend on good coffee, good food, and weekend plans. Fitness is a natural extension of that. The specific job title doesn't matter. What matters is the behavioural profile.</p>
+
+      <div class="two-col">
+        <div class="mini-card">
+          <div class="mini-card-label">Customer Profile</div>
+          <ul>
+            <li>Young professional, 25–38, lives or works in Indiranagar</li>
+            <li>₹5,000–6,000/month disposable for lifestyle and wellness</li>
+            <li>Currently goes to one studio or gym inconsistently</li>
+            <li>Curious about pilates, aerial yoga, muay thai — hasn't tried them</li>
+            <li>Would pay ₹3,500–4,500/month for genuine variety and flexibility</li>
+            <li>Already books food, cabs, travel on apps — fitness booking is natural</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">What They're Missing</div>
+          <ul>
+            <li>Discovery — doesn't know half these studios exist</li>
+            <li>Flexibility — hates 6-month gym lock-ins</li>
+            <li>Affordability — ₹1,200 drop-in feels expensive for one try</li>
+            <li>Variety — one studio gets stale after 3 months</li>
+            <li>Community — wants to meet people through shared activity</li>
+            <li>Simplicity — one app, one payment, everything accessible</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>The value proposition is simple: a single ₹3,999/month pass gives you ₹350–450 per class across the best studios in Indiranagar — roughly 3–4x cheaper than walking in off the street. That's a real economic unlock, not just convenience. And for someone spending ₹5–6k a month on lifestyle anyway, it fits naturally into how they already think about spending.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Studios -->
+    <section class="section" id="studios">
+      <div class="section-eyebrow">Supply-Side Field Research · June 25, 2026</div>
+      <h2 class="section-title">Studios contacted <em>today.</em></h2>
+
+      <p>Five studios were contacted in a single afternoon — called as a regular consumer, asking about drop-in sessions, pricing, and class schedules. No pitch made. Here's what was found.</p>
+
+      <div class="studio-grid">
+
+        <div class="studio-card">
+          <div class="studio-header">
+            <div>
+              <div class="studio-name">Fit District</div>
+              <div class="studio-type">Functional movement · 100ft Rd · New</div>
+            </div>
+            <div class="fit-pill fit-strong">Strong fit</div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Drop-in</div>
+              <div class="data-value">₹1,200</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Batch size</div>
+              <div class="data-value">6–10 members</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Off-peak occupancy</div>
+              <div class="data-value">~40% (7:30pm)</div>
+            </div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Formats</div>
+              <div class="data-value">LSC, SMF, Animal Flow, JCT, Hyrox+</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in friction</div>
+              <div class="data-value">
+                <div class="friction-bar">
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                </div>
+              </div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Contact</div>
+              <div class="data-value">Tahir (founder)</div>
+            </div>
+          </div>
+          <div class="studio-insight">Assessment-first model creates friction. Off-peak slots genuinely empty — 4 people in a 10-person 7:30pm batch. <em>Platform pitch: fill your empties with the right people.</em></div>
+        </div>
+
+        <div class="studio-card">
+          <div class="studio-header">
+            <div>
+              <div class="studio-name">The Studio by Copper + Cloves</div>
+              <div class="studio-type">Multi-format lifestyle studio · Domlur · Premium</div>
+            </div>
+            <div class="fit-pill fit-very-strong">Best fit</div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Drop-in (1 day)</div>
+              <div class="data-value">₹945</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">8-class pass</div>
+              <div class="data-value">₹7,200 (₹900/class)</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Occupancy</div>
+              <div class="data-value">Unknown — visiting</div>
+            </div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Formats</div>
+              <div class="data-value">20+ — Barre, Muay Thai, Pilates, Yoga, Dance, Sound Healing…</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in friction</div>
+              <div class="data-value">
+                <div class="friction-bar">
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                </div>
+              </div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Infrastructure</div>
+              <div class="data-value">Own online booking, café, showers</div>
+            </div>
+          </div>
+          <div class="studio-insight">Already calls their bundle a "Class Pass." Self-serve online booking. 20+ formats under one roof. Café + co-working space. <em>Most platform-ready studio in the neighbourhood.</em></div>
+        </div>
+
+        <div class="studio-card">
+          <div class="studio-header">
+            <div>
+              <div class="studio-name">AthaYog Living</div>
+              <div class="studio-type">Traditional yoga academy · HAL 2nd Stage</div>
+            </div>
+            <div class="fit-pill fit-medium">Medium fit</div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Drop-in</div>
+              <div class="data-value">₹630 incl. GST</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Batch size</div>
+              <div class="data-value">5–15 (max 20)</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Off-peak occupancy</div>
+              <div class="data-value">25–50% (varies)</div>
+            </div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Formats</div>
+              <div class="data-value">5 yoga styles + Aerial (paid)</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in friction</div>
+              <div class="data-value">
+                <div class="friction-bar">
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                </div>
+              </div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Schedule</div>
+              <div class="data-value">7 days · 6am–8:30pm</div>
+            </div>
+          </div>
+          <div class="studio-insight">Lowest price point found. Good for platform diversity — yoga practitioners are a distinct, loyal segment. <em>Aerial Yoga (Sundays + Fridays) is a high-discovery draw.</em></div>
+        </div>
+
+        <div class="studio-card">
+          <div class="studio-header">
+            <div>
+              <div class="studio-name">The Pilates Studio (Namrata Purohit)</div>
+              <div class="studio-type">Premium pilates · HAL 2nd Stage · National brand</div>
+            </div>
+            <div class="fit-pill fit-strong">Strong fit</div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Trial class</div>
+              <div class="data-value">₹899</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in session</div>
+              <div class="data-value">₹1,350 incl. GST</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Batch size</div>
+              <div class="data-value">7–8 members</div>
+            </div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Formats</div>
+              <div class="data-value">Mat pilates, reformer, 1:1 PT</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in friction</div>
+              <div class="data-value">
+                <div class="friction-bar">
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot filled"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                  <div class="friction-dot empty"></div>
+                </div>
+              </div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Brand</div>
+              <div class="data-value">National (Mumbai HQ)</div>
+            </div>
+          </div>
+          <div class="studio-insight">Highest drop-in price in the dataset. National brand adds credibility to platform. <em>Getting Namrata Purohit on the platform is a strong signal to other studios.</em></div>
+        </div>
+
+        <div class="studio-card">
+          <div class="studio-header">
+            <div>
+              <div class="studio-name">CrossFit 9one</div>
+              <div class="studio-type">CrossFit · Jeevan Bima Nagar · Community-first</div>
+            </div>
+            <div class="fit-pill fit-strong">Strong fit</div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Pricing</div>
+              <div class="data-value">Not reached</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Rating</div>
+              <div class="data-value">4.9 · 116 reviews</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Special</div>
+              <div class="data-value">Ice bath on-site</div>
+            </div>
+          </div>
+          <div class="studio-data">
+            <div class="data-point">
+              <div class="data-label">Formats</div>
+              <div class="data-value">CrossFit, running classes, competitions</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Drop-in friction</div>
+              <div class="data-value">Unknown — to call</div>
+            </div>
+            <div class="data-point">
+              <div class="data-label">Community signal</div>
+              <div class="data-value">"Joined a family" (reviews)</div>
+            </div>
+          </div>
+          <div class="studio-insight">Didn't answer — call again. 4.9 stars suggests strong word of mouth. CrossFit communities are fiercely loyal — good for platform retention. <em>Ice bath is a discovery hook.</em></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="section-eyebrow">Economics · Real Data</div>
+      <h2 class="section-title">The <em>pricing landscape</em> and what it means.</h2>
+
+      <p>Drop-in prices across contacted studios range from ₹630 to ₹1,350. This range matters because a credits system needs to weight studios differently — otherwise you're subsidising Namrata Purohit bookings with AthaYog revenue, or overcharging people for yoga and losing money on pilates.</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">₹630</div>
+          <div class="stat-label">Lowest drop-in found (AthaYog)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹1,350</div>
+          <div class="stat-label">Highest drop-in found (Namrata Pilates)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹990</div>
+          <div class="stat-label">Avg across 4 studios with data</div>
+        </div>
+      </div>
+
+      <p><strong>Platform economics sketch:</strong> If the pass is priced at ₹3,999/month and includes 6 credits, and studios are paid at roughly 55–60% of their drop-in rate per booking — the break-even is around 4–5 classes attended per month. Heavy users (6+ classes) are subsidised by light users (1–2 classes). This is the exact dynamic ClassPass depended on, and managed successfully with the credits model after 2016.</p>
+
+      <p>The corporate wellness angle changes this math significantly. A company buying 50 passes at ₹2,500/employee/month = ₹1.25L/month from one client. Studio utilisation stays the same but revenue per user is guaranteed. That's the early unit economics lever.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Challenges -->
+    <section class="section" id="challenges">
+      <div class="section-eyebrow">Honest Assessment</div>
+      <h2 class="section-title">The <em>real challenges</em> — not minimised.</h2>
+
+      <p>Any credible version of this document has to include an honest assessment of what could go wrong. ClassPass's history is instructive — they nearly died twice. Here's what this business needs to solve.</p>
+
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <div class="challenge-num">01</div>
+          <div class="challenge-text">
+            <strong>Month 3 churn is brutal and invisible at first.</strong>
+            People love a multi-studio pass in month 1. Life happens. By month 3 they're attending 2 classes and feeling guilty about the subscription. The business only works if enough casual users subsidise heavy users. Getting this balance right is the core product challenge.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">02</div>
+          <div class="challenge-text">
+            <strong>Studios will protect their best inventory.</strong>
+            This is the most underrated risk. Studio owners will smile, sign up, and give the platform their worst time slots. 7am Tuesday. Off-peak Wednesdays. The platform needs contractual controls on what inventory is available, or the product experience degrades quickly.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">03</div>
+          <div class="challenge-text">
+            <strong>The addressable market in Indiranagar is smaller than it feels.</strong>
+            The people who go to Belong, do pilates, book aerial yoga — how many of them are there, really? Indiranagar is a premium pocket in a city where most people wouldn't pay ₹4,000/month for a fitness pass. The consumer base is real but finite. Phase 1 has to be honest about that.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">04</div>
+          <div class="challenge-text">
+            <strong>The pricing ceiling is lower than in the US.</strong>
+            ClassPass worked partly because a single SoulCycle class cost $35–40, making $99 feel like a steal. At ₹990 average drop-in and a ₹3,999 pass, the arbitrage is real but narrower. Margin is tighter from day one.
+          </div>
+        </div>
+        <div class="challenge-item">
+          <div class="challenge-num">05</div>
+          <div class="challenge-text">
+            <strong>This is 80% operations at MVP stage.</strong>
+            Studio calls, revenue-share negotiations, member onboarding, handling booking errors, chasing a studio that cancelled a class — none of this is glamorous. Someone has to eat it full time for 12–18 months. The founding team needs to be honest about who does this.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunity -->
+    <section class="section" id="opportunity">
+      <div class="section-eyebrow">The Thesis</div>
+      <h2 class="section-title">Why it's worth <em>trying anyway.</em></h2>
+
+      <div class="opportunity-block">
+        <div class="section-eyebrow">The Window</div>
+        <h3>Indiranagar in 2026 is what New York's West Village was to ClassPass in 2013.</h3>
+        <p>Boutique supply that's finally dense enough. Consumer sophistication that's finally there. Payment infrastructure that's finally mature. And a potential founding team — one with lived experience of the product in the US market, and one who literally runs the anchor studio and understands the supply side inside out.</p>
+        <p>The idea isn't novel. The execution window is.</p>
+      </div>
+
+      <p><strong>What the MVP actually looks like:</strong> 8–10 studios. One neighbourhood. A credits-based monthly pass at ₹3,999. A WhatsApp-first or minimal-app booking flow. 150–200 paying subscribers in month 3. Not an app. Not a platform. A product that proves people will pay, studios will stay, and the habit is real.</p>
+
+      <p><strong>What success at Phase 1 unlocks:</strong> If 200 subscribers at ₹3,999 hold for 3 months with 60%+ retention, that's proof enough for a seed round and expansion to Koramangala. Every premium urban pocket in India — Bandra, GK2, Jubilee Hills — has the same problem. Indiranagar is the proof point.</p>
+
+      <p><strong>The B2B unlock:</strong> 5 corporate clients buying 30 passes each at ₹2,500/pass = ₹37.5L/month in GMV, with near-zero additional studio cost. Bangalore's startup density makes this a realistic Phase 1 parallel track, not a Phase 2 ambition.</p>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section" id="nextsteps">
+      <div class="section-eyebrow">Proposed Path Forward</div>
+      <h2 class="section-title">What <em>the next 30 days</em> could look like.</h2>
+
+      <p>None of this requires a commitment to build. It requires a commitment to find out if the demand is real — with minimal time and zero capital.</p>
+
+      <div class="next-steps">
+        <div class="step">
+          <div class="step-phase">Week 1–2 · Consumer</div>
+          <div class="step-content">
+            <strong>Visit 5 studios as a paying customer.</strong>
+            Fit District assessment + class. The Studio by Copper + Cloves drop-in. AthaYog trial. CrossFit 9one. One pilates session. Experience the product you'd be aggregating. Note the experience gaps, the friction, the highlights.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-phase">Week 2 · Demand</div>
+          <div class="step-content">
+            <strong>10 conversations with the right people.</strong>
+            Not Belong members. Young professionals — developers, designers, consultants, founders — who live or work in Indiranagar, are fitness-curious, and have the disposable income to spend. Find 10 of them through existing networks. One question: "If you could access any studio in Indiranagar for ₹4,000/month with no lock-in, would you?" Don't survey — have real conversations.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-phase">Week 3 · Supply</div>
+          <div class="step-content">
+            <strong>3 founder conversations.</strong>
+            Return to Fit District (Tahir), The Studio by Copper + Cloves, and one other. Not pitching — asking: "If a platform could guarantee you 5–8 new customers a month for your empty slots, would you be interested in a conversation?" Gauge the appetite.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-phase">Week 4 · Decision</div>
+          <div class="step-content">
+            <strong>One honest debrief.</strong>
+            If 6 out of 10 consumer conversations produce genuine excitement, and 2 out of 3 studio owners are open to exploring — the signal is there to take the next step. If not, the research was still worth doing and the answer is no for now.
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"The only question that matters in the next 30 days: do real people in Indiranagar want this badly enough to pay for it before an app exists? Everything else is secondary."</p>
+      </div>
+
+      <p>This document was put together after one afternoon of desk research, one lunch conversation, and five phone calls. It's a starting point, not a conclusion. The most important thing that happens next is the conversation between two people who know this neighbourhood, know this world, and are honest with each other about whether this is worth pursuing.</p>
+
+      <p style="margin-top: 32px; color: var(--text-muted); font-size: 13px;">Prepared by Mihir · June 25, 2026 · For discussion with Prasanna Akella</p>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
