@@ -593,6 +593,27 @@
     .step { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
+<!-- Umami Analytics -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="0f1e7145-877c-4055-8090-72426d5e54d7"></script>
+<!-- Scroll depth tracker -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var milestones = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = Math.round((scrollTop / docHeight) * 100);
+      Object.keys(milestones).forEach(function(m) {
+        if (!milestones[m] && pct >= parseInt(m)) {
+          milestones[m] = true;
+          if (typeof umami !== 'undefined') {
+            umami.track('scroll-depth', { depth: m + '%' });
+          }
+        }
+      });
+    }, { passive: true });
+  });
+</script>
 </head>
 <body>
 
